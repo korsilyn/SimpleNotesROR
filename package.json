@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "@hotwired/turbo-rails": "^7.3.0",
+    "esbuild": "^0.18.18",
+    "sass": "^1.64.2"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "sass --update --style=expanded ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css"
+  }
+}
