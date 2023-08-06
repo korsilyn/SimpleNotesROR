@@ -1,8 +1,11 @@
 <main class="container">
   <div class="header">
     <h1>Notes</h1>
-    <%= link_to "New note", new_note_url, class: "btn btn--primary" %>
+    <%= link_to "New note", new_note_url, class: "btn btn--primary", data: { turbo_frame: dom_id(Note.new) } %>
   </div>
 
-  <%= render @notes %>
+  <%= turbo_frame_tag Note.new %>
+  <%= turbo_frame_tag "notes" do %>
+    <%= render @notes %>
+  <% end %>
 </main>

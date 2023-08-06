@@ -6,5 +6,6 @@
   <% end %>
 
   <%= f.input :name, input_html: { autofocus: true } %>
+  <%= link_to "Cancel", notes_url, class: "btn btn--primary" %>
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>

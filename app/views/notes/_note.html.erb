@@ -1,7 +1,9 @@
-<div class="note">
-  <%= link_to note.name, note_url(note) %>
-  <div class="note__actions">
-    <%= button_to "Delete", note_url(note), method: :delete, class: "btn btn--light" %>
-    <%= link_to "Edit", edit_note_url(note), class: "btn btn--ligh" %>
+<%= turbo_frame_tag note do %>
+  <div class="note">
+    <%= link_to note.name, note_url(note), data: { turbo_frame: "_top" } %>
+    <div class="note__actions">
+      <%= button_to "Delete", note_url(note), method: :delete, class: "btn btn--light" %>
+      <%= link_to "Edit", edit_note_url(note), class: "btn btn--ligth" %>
+    </div>
   </div>
-</div>
+<% end %>
