@@ -4,7 +4,12 @@
     <%= link_to "New note", new_note_url, class: "btn btn--primary", data: { turbo_frame: dom_id(Note.new) } %>
   </div>
 
-  <%= turbo_frame_tag Note.new %>
+  <%= turbo_frame_tag Note.new do %>
+    <% if @notes.none? %>
+      <%= render "notes/empty_state" %>
+    <% end %>
+  <% end %>
+
   <%= turbo_frame_tag "notes" do %>
     <%= render @notes %>
   <% end %>

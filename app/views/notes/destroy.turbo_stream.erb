@@ -1,1 +1,6 @@
 <%= turbo_stream.remove @note %>
+<% unless Note.exists? %>
+  <%= turbo_stream.update Note.new do %>
+    <%= render "notes/empty_state" %>
+  <% end %>
+<% end %>
